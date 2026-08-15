@@ -6,6 +6,12 @@
 
 > **每个插件都是独立的 git 仓库（submodule），挂载在本父仓库下。父仓库本身只包含规范文档（AGENTS.md / README）和子模块引用，不直接存放插件代码。**
 
+## 插件命名规范
+
+- **统一前缀**：所有插件目录名一律使用 `dsh-plugin-<name>` 格式（如 `dsh-plugin-speaker`、`dsh-plugin-voice-input`、`dsh-plugin-deepseek-usage`），不使用 `dsh-<name>` / `tts` 等其他前缀。
+- **名字全局一致**：目录名、`package.json` 的 `name`、插件注册名（`export const name`）、浏览器 bundle 模块 `id`、settings namespace 必须与 `dsh-plugin-<name>` 完全一致（`cordis.patch.yml` 的行 `id` / `name` 也使用同一名字）。
+- **仓库同名**：插件 GitHub 仓库与目录名一致：`<owner>/dsh-plugin-<name>.git`；`.gitmodules` 的 `path` / `url` 均使用该名字。
+
 ### 目录结构
 
 ```
