@@ -1,3 +1,6 @@
 [submodule "dsh-plugin-deepseek-usage"]
 	path = dsh-plugin-deepseek-usage
 	url = ../dsh-plugin-deepseek-usage.git
+[submodule "dsh-tts"]
+	path = dsh-tts
+	url = ../dsh-speaker.git
