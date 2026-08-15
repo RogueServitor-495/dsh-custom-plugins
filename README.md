@@ -6,7 +6,7 @@ dsh（DeepSeek Harness）自定义插件父仓库。**仓库规范见 [AGENTS.md
 
 | 插件 | 说明 | 仓库 |
 |---|---|---|
-| [dsh-plugin-speaker](./dsh-plugin-speaker) | 文字转语音播报（speak / tts_voices；macOS say+afplay / Windows SAPI） | `RogueServitor-495/dsh-speaker` |
+| [dsh-plugin-speaker](./dsh-plugin-speaker) | 文字转语音播报（speak / tts_voices；macOS say+afplay / Windows SAPI） | `RogueServitor-495/dsh-plugin-speaker` |
 | [dsh-plugin-deepseek-usage](./dsh-plugin-deepseek-usage) | 在 Web 页面顶端展示 DeepSeek API 当日 token 使用量 ｜ 计费 ｜ 余额 | `RogueServitor-495/dsh-plugin-deepseek-usage` |
 | [dsh-plugin-voice-input](./dsh-plugin-voice-input) | 语音转文字输入按钮（Web Speech API 🎤，客户端插件） | `RogueServitor-495/dsh-plugin-voice-input` |
 

@@ -3,7 +3,7 @@
 	url = ../dsh-plugin-deepseek-usage.git
 [submodule "dsh-plugin-speaker"]
 	path = dsh-plugin-speaker
-	url = ../dsh-speaker.git
+	url = ../dsh-plugin-speaker.git
 [submodule "dsh-plugin-voice-input"]
 	path = dsh-plugin-voice-input
 	url = ../dsh-plugin-voice-input.git
