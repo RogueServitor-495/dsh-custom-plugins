@@ -7,3 +7,7 @@
 [submodule "dsh-plugin-voice-input"]
 	path = dsh-plugin-voice-input
 	url = ../dsh-plugin-voice-input.git
+
+[submodule "dsh-plugin-context-overview"]
+	path = dsh-plugin-context-overview
+	url = ../dsh-plugin-context-overview.git
