@@ -1,0 +1,3 @@
+[submodule "dsh-plugin-deepseek-usage"]
+	path = dsh-plugin-deepseek-usage
+	url = ../dsh-plugin-deepseek-usage.git
