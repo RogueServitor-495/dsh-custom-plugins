@@ -6,6 +6,58 @@
 
 > **每个插件都是独立的 git 仓库（submodule），挂载在本父仓库下。父仓库本身只包含规范文档（AGENTS.md / README）和子模块引用，不直接存放插件代码。**
 
+## Git 项目管理规范（强制）
+
+> **父仓库 `dsh-custom-plugins` 是所有插件的唯一收纳与管理入口：所有插件必须以子模块（submodule）形式挂载在父仓库下。** 父仓库的 index 中必须有对应 gitlink、`.gitmodules` 中必须有对应条目；仅存在插件目录而未注册子模块，即视为「未收编」状态，**禁止直接提交/推送，必须先按下方流程收编**。
+
+### 一、插件生命周期 git 规则
+
+1. **一个插件 = 一个独立 git 仓库 + 父仓库里的一个子模块**。插件代码只存在于插件仓库；父仓库只记录子模块指针与规范文档，不直接存放插件代码。
+2. **新插件上线必经流程**（缺一不可）：
+   1. 在 GitHub 建仓 `<owner>/dsh-plugin-<name>.git`（与父仓库同 owner，可先建空仓）；
+   2. 插件代码完成开发并本地提交（`git init -b main` → `git add -A` → `git commit`）；
+   3. 推送插件仓库到 GitHub（`git push -u origin main`）；
+   4. 在父仓库注册子模块并提交（见「二、注册子模块」）；
+   5. 同步更新 `README.md` 插件清单；
+   6. 推送父仓库（`git push origin main`）。
+3. **已开发但未注册子模块的插件 → 收编流程**：开发期允许插件先以普通目录存在，但任何提交/推送前必须完成收编：
+   - 本地 `git init -b main` 初始化插件仓库，核对 `.gitignore`（必须含 `dsh-home/`、`node_modules/`、`*.log`、`.DS_Store`），确认无密钥后提交；
+   - GitHub 建仓 → 推送插件仓库（先于父仓库提交，保证协作者 `git submodule update --init` 能拉到）；
+   - 父仓库注册子模块 → 提交 → 推送父仓库。
+4. **子模块内部有未提交改动（`modified content`）时**：改动一律先在子模块内「提交 + 推送」，再在父仓库 bump 子模块指针并提交推送；**禁止**长期保留脏子模块，也不得把子模块改动绕道提交进父仓库。
+5. **父仓库工作区必须保持干净**：
+   - `.DS_Store`、`*.log` 等由父仓库 `.gitignore` 屏蔽，禁止提交；
+   - 提交前必查 `git status`：只允许「文档变更 + 子模块指针变更（新增 gitlink / `modified: <plugin> (new commits)`）」，其余一律清理。
+6. **提交信息**：遵循 `type: 描述` 前缀（`feat:` / `fix:` / `chore:` / `docs:`）；新增子模块用 `chore: add <plugin-name> submodule`，指针更新用 `chore: bump <plugin-name> 子模块`。
+
+### 二、注册子模块（已有本地插件仓库时）
+
+插件目录已在本地（已 git init 并提交）时，无需重新 clone，直接注册：
+
+```sh
+cd dsh-custom-plugins
+# 1) 写入 .gitmodules（相对 URL，GitHub 自动解析为同 owner 兄弟仓库）
+git config -f .gitmodules submodule.<plugin-name>.path <plugin-name>
+git config -f .gitmodules submodule.<plugin-name>.url ../<plugin-name>.git
+# 2) 把插件当前提交注册为 gitlink
+git update-index --add --cacheinfo 160000,$(git -C <plugin-name> rev-parse HEAD) <plugin-name>
+# 3) 本地初始化子模块记录，提交并推送
+git submodule init
+git add .gitmodules <plugin-name>
+git commit -m "chore: add <plugin-name> submodule"
+git push origin main
+```
+
+> ⚠️ 插件仓库必须**先**建仓并推送，否则其他协作者 `git submodule update --init` 会拉取失败。
+
+### 三、收编检查清单（提交父仓库前逐项核对）
+
+- [ ] 插件目录已注册：`.gitmodules` 有条目，父仓库 index 有 gitlink（`git submodule status` 无 `-` 前缀）；
+- [ ] 插件仓库已推送 GitHub，且与 `.gitmodules` 中 URL（同 owner）一致；
+- [ ] 插件 `.gitignore` 含 `dsh-home/`、`node_modules/`、`*.log`、`.DS_Store`；`git grep -n "sk-" <plugin> HEAD` 无密钥；
+- [ ] `README.md` 插件清单已补新插件；
+- [ ] `git status` 仅剩预期变更（文档 + 子模块指针）。
+
 ## 插件命名规范
 
 - **统一前缀**：所有插件目录名一律使用 `dsh-plugin-<name>` 格式（如 `dsh-plugin-speaker`、`dsh-plugin-voice-input`、`dsh-plugin-deepseek-usage`），不使用 `dsh-<name>` / `tts` 等其他前缀。

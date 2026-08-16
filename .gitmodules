@@ -14,3 +14,9 @@
 [submodule "dsh-plugin-chat-display"]
 	path = dsh-plugin-chat-display
 	url = ../dsh-plugin-chat-display.git
+[submodule "dsh-plugin-context"]
+	path = dsh-plugin-context
+	url = ../dsh-plugin-context.git
+[submodule "dsh-plugin-manager"]
+	path = dsh-plugin-manager
+	url = ../dsh-plugin-manager.git
