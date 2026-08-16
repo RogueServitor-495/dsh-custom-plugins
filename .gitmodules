@@ -11,3 +11,6 @@
 [submodule "dsh-plugin-context-overview"]
 	path = dsh-plugin-context-overview
 	url = ../dsh-plugin-context-overview.git
+[submodule "dsh-plugin-chat-display"]
+	path = dsh-plugin-chat-display
+	url = ../dsh-plugin-chat-display.git
