@@ -20,3 +20,6 @@
 [submodule "dsh-plugin-manager"]
 	path = dsh-plugin-manager
 	url = ../dsh-plugin-manager.git
+[submodule "dsh-plugin-knowledge-base"]
+	path = dsh-plugin-knowledge-base
+	url = ../dsh-plugin-knowledge-base.git
