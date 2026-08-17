@@ -23,3 +23,6 @@
 [submodule "dsh-plugin-knowledge-base"]
 	path = dsh-plugin-knowledge-base
 	url = ../dsh-plugin-knowledge-base.git
+[submodule "dsh-plugin-todo-list"]
+	path = dsh-plugin-todo-list
+	url = ../dsh-plugin-todo-list.git
