@@ -14,7 +14,7 @@ dsh（DeepSeek Harness）自定义插件父仓库。**仓库规范见 [AGENTS.md
 | [dsh-plugin-context-view](./dsh-plugin-context-view) | 上下文+工作区管理面板：页签切换——上下文（指令文件/Skills/工具MCP/规范文档存在与内容双维）+ 工作区（目录树/打开方式/简易编辑器） | `RogueServitor-495/dsh-plugin-context-view` |
 | [dsh-plugin-context-overview](./dsh-plugin-context-overview) | 对话状态数据 + macOS 系统级原生悬浮框（独立于浏览器，可插件托管自动拉起） | `RogueServitor-495/dsh-plugin-context-overview` |
 | [dsh-plugin-knowledge-base](./dsh-plugin-knowledge-base) | 跨对话知识库：飞书 Wiki 文档检索与收藏（Agent 工具 + 浏览器管理面板，凭据/收藏 UI 配置） | `RogueServitor-495/dsh-plugin-knowledge-base` |
-| [dsh-plugin-todo-list](./dsh-plugin-todo-list) | 轻量待办清单：右侧拓展边框栏（展开时推开对话区不遮挡）+ 可自由拖动的折叠胶囊，JSON 文件持久化 | `RogueServitor-495/dsh-plugin-todo-list` |
+| [dsh-plugin-todo-list](./dsh-plugin-todo-list) | 待办清单 + 对话联动：右侧拓展边框栏（推开对话区不遮挡）+ 可拖动折叠胶囊 + Agent 工具（对话可读写同一清单），JSON 持久化 | `RogueServitor-495/dsh-plugin-todo-list` |
 
 ## 快速上手
 
