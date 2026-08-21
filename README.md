@@ -7,7 +7,7 @@ dsh（DeepSeek Harness）自定义插件父仓库。**仓库规范见 [AGENTS.md
 | 插件 | 说明 | 仓库 |
 |---|---|---|
 | [dsh-plugin-speaker](./dsh-plugin-speaker) | 文字转语音播报（speak / tts_voices；macOS say+afplay / Windows SAPI） | `RogueServitor-495/dsh-plugin-speaker` |
-| [dsh-plugin-deepseek-usage](./dsh-plugin-deepseek-usage) | 在 Web 页面顶端展示 DeepSeek API 当日 token 使用量 ｜ 计费 ｜ 余额 | `RogueServitor-495/dsh-plugin-deepseek-usage` |
+| [dsh-plugin-deepseek-usage](./dsh-plugin-deepseek-usage) | 顶栏用量监控：按当前会话模型自动切换计费显示（DeepSeek 余额/费用、glm-coding-plan 与 kimi-coding 的 5h/周额度），可展开当日各模型 token 统计 | `RogueServitor-495/dsh-plugin-deepseek-usage` |
 | [dsh-plugin-manager](./dsh-plugin-manager) | 插件管理：列表/启停/移除已有插件，通过 git URL / npm / tarball / 本地路径导入新插件（Web 面板 + 同源 API） | `RogueServitor-495/dsh-plugin-manager` |
 | [dsh-plugin-voice-input](./dsh-plugin-voice-input) | 语音转文字输入按钮（Web Speech API 🎤，客户端插件） | `RogueServitor-495/dsh-plugin-voice-input` |
 | [dsh-plugin-chat-display](./dsh-plugin-chat-display) | 对话展示样式：设置 → 通用 可视化预设卡片（面板 / 原生 / 卡片 / 紧凑），带演示缩略图 | `RogueServitor-495/dsh-plugin-chat-display` |
