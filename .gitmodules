@@ -26,3 +26,6 @@
 [submodule "dsh-plugin-todo-list"]
 	path = dsh-plugin-todo-list
 	url = ../dsh-plugin-todo-list.git
+[submodule "dsh-plugin-quota-resume"]
+	path = dsh-plugin-quota-resume
+	url = ../dsh-plugin-quota-resume.git
